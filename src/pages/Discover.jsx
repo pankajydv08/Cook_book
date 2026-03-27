@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { searchRemoteRecipes } from '../api/spoonacularClient';
+import { searchRemoteRecipes } from '../api/apiNinjaClient';
 import { createLocalRecipe, fetchLocalRecipes } from '../api/jsonServerClient';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -50,7 +50,7 @@ const Discover = () => {
       setApiRecipes(results);
     } catch (error) {
       console.error(error);
-      toast.error('Spoonacular request failed');
+      toast.error('API Ninjas request failed');
     } finally {
       setLoadingRemote(false);
     }
@@ -94,7 +94,7 @@ const Discover = () => {
     <div className="mx-auto max-w-6xl space-y-10">
       <header className="rounded-[2rem] border border-white/60 bg-white/80 p-8 shadow-book">
         <p className="text-sm uppercase tracking-[0.5em] text-olive">Discover</p>
-        <h1 className="mt-2 font-display text-4xl text-espresso">Earthy recipes from Spoonacular</h1>
+        <h1 className="mt-2 font-display text-4xl text-espresso">Earthy recipes from API Ninjas</h1>
         <form className="mt-6 grid gap-4 md:grid-cols-[2fr_2fr_1fr_auto]" onSubmit={search}>
           <Input label="Ingredient" value={ingredient} onChange={(e) => setIngredient(e.target.value)} placeholder="chicken, tomato..." />
           <Input label="Recipe name" value={recipeName} onChange={(e) => setRecipeName(e.target.value)} placeholder="lasagna, curry..." />
